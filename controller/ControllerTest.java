@@ -33,7 +33,7 @@ public class ControllerTest {
 	
 	
 	@Test(expected = IllegalArgumentException.class)
-	public void testForUgyldigDato() {
+	public void testForUgyldigDatoForDagligFast() {
 		Controller c = Controller.getController();
 		Patient p = new Patient("xxxxxx-xxxx", "Ib", 65);
 		Laegemiddel l = new Laegemiddel("Test", 0.1, 0.15, 0.16, "Styk");
@@ -45,9 +45,9 @@ public class ControllerTest {
 		
 	}
 
- 	
+ 	 
 	@Test(expected = IllegalArgumentException.class)
-	public void testForUgyldigAntalEnheder() {
+	public void testForUgyldigAntalEnhederForDagligFast() {
 		Controller c = Controller.getController();
 		Patient p = new Patient("xxxxxx-xxxx", "Ib", 65);
 		Laegemiddel l = new Laegemiddel("Test", 0.1, 0.15, 0.16, "Styk");
