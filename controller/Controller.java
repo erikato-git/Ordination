@@ -21,6 +21,11 @@ public class Controller {
 		this.storage = new Storage();
 	}
 
+	//tilføjet get-metode til at teste antalOrdinationerPrVægtPrLægemiddel i jUnit
+	public Storage getStorage() {
+		return storage;
+	}
+	
 	public static Controller getController() {
 		if (controller == null) {
 			controller = new Controller();
@@ -62,9 +67,9 @@ public class Controller {
 	public DagligFast opretDagligFastOrdination(LocalDate startDen,
 			LocalDate slutDen, Patient patient, Laegemiddel laegemiddel,
 			double morgenAntal, double middagAntal, double aftenAntal,
-			double natAntal) { 
+			double natAntal) {  
 
-		if (checkStartFoerSlut(startDen, slutDen) && morgenAntal >= 0 && middagAntal >= 0 && aftenAntal >= 0 && natAntal >= 0 ) {
+		if (checkStartFoerSlut(startDen, slutDen) && (morgenAntal >= 0) && (middagAntal >= 0) && (aftenAntal >= 0) && (natAntal >= 0) ) {
 
 			DagligFast dagligFast = new DagligFast(startDen, slutDen);
 			dagligFast.setLaegemiddel(laegemiddel);
@@ -105,7 +110,7 @@ public class Controller {
 		} else {
 			throw new IllegalArgumentException("Ordinationen oprettes ikke ");
 		}
-	}
+	} 
 
 	/**
 	 * En dato for hvornår ordinationen anvendes tilføjes ordinationen. Hvis
@@ -241,10 +246,13 @@ public class Controller {
 						.get(1),
 				123);
 
-		opretDagligFastOrdination(LocalDate.of(2019, 1, 10),
-				LocalDate.of(2019, 1, 12), this.storage.getAllPatienter().get(1),
-				this.storage.getAllLaegemidler().get(1), 2, -1, 1, -1);
-
+//Nedenstående kode har vi valgt at udkommenterer, da den var ugyldig pga. ugyldige enheder og derved
+//forårsagede fejl i programmet ved opstart
+		
+//		opretDagligFastOrdination(LocalDate.of(2019, 1, 10),
+//				LocalDate.of(2019, 1, 12), this.storage.getAllPatienter().get(1),
+//				this.storage.getAllLaegemidler().get(1), 2, -1, 1, -1);
+ 
 		LocalTime[] kl = { LocalTime.of(12, 0), LocalTime.of(12, 40),
 				LocalTime.of(16, 0), LocalTime.of(18, 45) };
 		double[] an = { 0.5, 1, 2.5, 3 };

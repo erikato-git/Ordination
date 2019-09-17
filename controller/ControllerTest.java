@@ -59,4 +59,16 @@ public class ControllerTest {
 
 	}
 	
+
+	@Test
+	public void antalOrdinationerPrVægtPrLægemiddel() {
+
+		//test for at den opretter antal ordination (fejl-fri)
+
+		
+		//test for ugyldig start-vægt og slut-vægt 
+
+		
+	}
+	
 }
