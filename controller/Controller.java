@@ -62,8 +62,9 @@ public class Controller {
 	public DagligFast opretDagligFastOrdination(LocalDate startDen,
 			LocalDate slutDen, Patient patient, Laegemiddel laegemiddel,
 			double morgenAntal, double middagAntal, double aftenAntal,
-			double natAntal) {
-		if (checkStartFoerSlut(startDen, slutDen)) {
+			double natAntal) { 
+
+		if (checkStartFoerSlut(startDen, slutDen) && morgenAntal >= 0 && middagAntal >= 0 && aftenAntal >= 0 && natAntal >= 0 ) {
 
 			DagligFast dagligFast = new DagligFast(startDen, slutDen);
 			dagligFast.setLaegemiddel(laegemiddel);
@@ -72,10 +73,10 @@ public class Controller {
 			dagligFast.createDosis(LocalTime.of(18, 00), aftenAntal);
 			dagligFast.createDosis(LocalTime.of(00, 00), natAntal);
 
-			patient.addOrdination(dagligFast);
+			patient.addOrdination(dagligFast);	
 			return dagligFast;
 
-		} else {
+		} else { 
 			throw new IllegalArgumentException("Ordinationen oprettes ikke ");
 		}
 	}

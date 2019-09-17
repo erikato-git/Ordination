@@ -32,5 +32,7 @@ public class Dosis {
     public String toString(){
         return "Kl: " + tid + "   antal:  " + antal;
     }
+    
+    
 
 }
